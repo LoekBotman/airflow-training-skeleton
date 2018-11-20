@@ -1,6 +1,6 @@
 import airflow
 from airflow import DAG
-from airflow.contrib.operators.postgres_to_gcs_operator import PostGresToGoogleCloudStorageOperator
+from airflow.contrib.operators.postgres_to_gcs_operator import PostgresToGoogleCloudStorageOperator
 
 
 args = {"owner": "Loek",
@@ -12,7 +12,7 @@ dag = DAG(
     schedule_interval="0 0 * * *"
 )
 
-pgsl_to_gcs = PostGresToGoogleCloudStorageOperator(
+pgsl_to_gcs = PostgresToGoogleCloudStorageOperator(
     task_id="pgsl_to_gcs",
     sql = """SELECT * FROM 
     land_registry_price_paid_uk WHERE 
