@@ -3,7 +3,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
 def print_exec_date(excecution_date, **context):
-    print execution_date
+    print(execution_date)
 
 dag = DAG(
     dag_id="hello_airflow",
