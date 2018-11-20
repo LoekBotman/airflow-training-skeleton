@@ -3,12 +3,12 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
 
-def print_exec_date(execution_date):
+def print_exec_date(execution_date, **context):
     print(execution_date)
 
 
 dag = DAG(
-    dag_id="hello_airflow",
+    dag_id="hello_airflow_python",
     default_args={
         "owner": "godatadriven",
         "start_date": airflow.utils.dates.days_ago(3),
