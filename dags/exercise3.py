@@ -1,5 +1,4 @@
 import airflow
-import datetime
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
@@ -31,7 +30,7 @@ dag = DAG(
 )
 
 print_weekday = PythonOperator(
-    task_id="print_exec_date",
+    task_id="print_weekday",
     python_callable=lambda: print(execution_date.strftime("%a")),
     provide_context=True,
     dag=dag
@@ -46,7 +45,7 @@ branching = BranchPythonOperator(
 
 send_emails = [ PythonOperator(
     task_id=f"email_{name}",
-    python_callable=print(f"{name}"),
+    python_callable=lambda: print((f"{name}")),
     provide_context=True,
     dag=dag
 ) for name in ["Bob", "Joe", "Alice"]
