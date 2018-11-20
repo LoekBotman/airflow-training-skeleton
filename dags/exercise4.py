@@ -14,11 +14,11 @@ dag = DAG(
 
 pgsl_to_gcs = PostGresToGoogleCloudStorageOperator(
     task_id="pgsl_to_gcs",
-    sql = f"""SELECT * FROM 
+    sql = """SELECT * FROM 
     land_registry_price_paid_uk WHERE 
-    transfer_date = '{ds}'""",
+    transfer_date = '{{ ds }}'""",
     bucket = "airflow-training-data-loek",
-    filename = f"{ds}.json",
+    filename = "daily_load_{{ ds }}.json",
     posgres_conn_id="postgres_table",
     dag=dag
 )
