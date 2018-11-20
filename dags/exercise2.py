@@ -10,7 +10,7 @@ def print_exec_date(execution_date, **context):
 
 
 args = {"owner": "Loek",
-        "start_date": airflow.utils.dates.dates_ago(14)}
+        "start_date": airflow.utils.dates.days_ago(14)}
 
 dag = DAG(
     dag_id="exercise2",
