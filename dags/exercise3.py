@@ -31,14 +31,14 @@ dag = DAG(
 
 print_weekday = PythonOperator(
     task_id="print_weekday",
-    python_callable=lambda: print(context["execution_date"].strftime("%a")),
+    python_callable=lambda **context: print(context["execution_date"].strftime("%a")),
     provide_context=True,
     dag=dag
 )
 
 branching = BranchPythonOperator(
     task_id="branching",
-    python_callable=lambda: f"email_{weekday_person_to_email[context['execution_date']]}",
+    python_callable=lambda **context: f"email_{weekday_person_to_email[context['execution_date']]}",
     provide_context=True,
     dag=dag
 )
@@ -46,7 +46,7 @@ branching = BranchPythonOperator(
 send_emails = [ PythonOperator(
     task_id=f"email_{name}",
     python_callable=lambda: print((f"{name}")),
-    provide_context=True,
+    provide_context=False,
     dag=dag
 ) for name in ["Bob", "Joe", "Alice"]
 ]
