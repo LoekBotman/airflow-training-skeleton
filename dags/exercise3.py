@@ -31,14 +31,14 @@ dag = DAG(
 
 print_weekday = PythonOperator(
     task_id="print_weekday",
-    python_callable=lambda: print(execution_date.strftime("%a")),
+    python_callable=lambda: print(context["execution_date"].strftime("%a")),
     provide_context=True,
     dag=dag
 )
 
 branching = BranchPythonOperator(
     task_id="branching",
-    python_callable=lambda: f"email_{weekday_person_to_email[execution_date.strftime('%a')]}",
+    python_callable=lambda: f"email_{weekday_person_to_email[context['execution_date']]}",
     provide_context=True,
     dag=dag
 )
