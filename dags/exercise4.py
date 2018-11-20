@@ -1,5 +1,6 @@
 import airflow
 from airflow import DAG
+from airflow.contrib.operators.postgres_to_gcs_operator import PostGresToGoogleCloudStorageOperator
 
 
 args = {
