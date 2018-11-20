@@ -3,11 +3,8 @@ from airflow import DAG
 from airflow.contrib.operators.postgres_to_gcs_operator import PostGresToGoogleCloudStorageOperator
 
 
-args = {
-    "owner": "Loek",
-    "start_date", airflow.utils.dates.days_ago(3)
-}
-
+args = {"owner": "Loek",
+        "start_date": airflow.utils.dates.days_ago(3)}
 
 dag = DAG(
     dag_id="exercise4",
