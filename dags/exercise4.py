@@ -17,7 +17,7 @@ pgsl_to_gcs = PostgresToGoogleCloudStorageOperator(
     sql = """SELECT * FROM 
     land_registry_price_paid_uk WHERE 
     transfer_date = '{{ ds }}'""",
-    bucket = "airflow-training-data-loek",
+    bucket = "airflow-training-data-loek/pgsl_to_gcs",
     filename = "daily_load_{{ ds }}.json",
     posgres_conn_id="postgres_table",
     dag=dag
