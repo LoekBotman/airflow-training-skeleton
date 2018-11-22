@@ -13,7 +13,7 @@ spark.read.json(
 ).withColumn(
     "transfer_date", col("transfer_date").cast("timestamp").cast("date")
 ).createOrReplaceTempView(
-    "pgsl_to_gcs"
+    "land_registry_price_paid_uk"
 )
 
 # >>> df.printSchema()
