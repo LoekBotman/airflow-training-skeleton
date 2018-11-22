@@ -36,6 +36,7 @@ pgsl_to_gcs = PostgresToGoogleCloudStorageOperator(
 )
 
 dataproc_create_cluster = DataprocClusterCreateOperator(
+    task_id="dataproc_create_cluster",
     dag=dag,
     cluster_name="analyse-pricing-{{ ds }}",
     project_id=project_id,
@@ -44,6 +45,7 @@ dataproc_create_cluster = DataprocClusterCreateOperator(
 )
 
 compute_aggregates = DataProcPySparkOperator(
+    task_id="compute_aggregates",
     dag=dag,
     main="../other/build_statistics.py",
     cluster_name="analyse-pricing-{{ ds }}",
@@ -51,6 +53,7 @@ compute_aggregates = DataProcPySparkOperator(
 )
 
 dataproc_delete_cluster = DataprocClusterDeleteOperator(
+    task_id="dataproc_delete_cluster",
     dag=dag,
     cluster_name="analyse-pricing-{{ ds }}",
     project_id=project_id,
@@ -58,6 +61,7 @@ dataproc_delete_cluster = DataprocClusterDeleteOperator(
 )
 
 http_to_gcs = HttpToGcsOperator(
+    task_id="http_to_gcs",
     dag=dag,
     endpoint=http_end_point,
     gcs_bucket=bucket,
