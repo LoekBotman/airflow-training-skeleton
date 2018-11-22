@@ -16,7 +16,7 @@ dag = DAG(
 )
 
 http_to_gcs = HttpToGcsOperator(
-    task_id="http_to_gcs"
+    task_id="http_to_gcs",
     dag=dag,
     endpoint=http_end_point,
     gcs_bucket=bucket,
