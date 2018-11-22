@@ -65,7 +65,7 @@ http_to_gcs = HttpToGcsOperator(
     dag=dag,
     endpoint=http_end_point,
     gcs_bucket=bucket,
-    gcs_path="exchange_rates/"
+    gcs_path="exchange_rates/currency{{ ds }}.json"
 )
 
 
