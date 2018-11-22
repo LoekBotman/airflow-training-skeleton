@@ -12,7 +12,7 @@ from airflow_training.operators.http_to_gcs import HttpToGcsOperator
 args = {"owner": "Loek",
         "start_date": airflow.utils.dates.days_ago(3)}
 
-project_id = "611e4210f1606867"
+project_id = "airflowbolcom-611e4210f1606867"
 
 http_end_point = "airflow-training-transform-valutas?date={{ ds }}&from=GBP&to=EUR"
 
