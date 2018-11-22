@@ -5,7 +5,7 @@ from airflow_training.operators.http_to_gcs import HttpToGcsOperator
 args = {"owner": "Loek",
         "start_date": airflow.utils.dates.days_ago(3)}
 
-http_end_point = "https://europe-west1-gdd-airflow-training.cloudfunctions.net/airflow-training-transform-valutas?date={{ ds }}&from=GBP&to=EUR"
+http_end_point = "airflow-training-transform-valutas?date={{ ds }}&from=GBP&to=EUR"
 
 bucket = "airflow-training-data-loek"
 

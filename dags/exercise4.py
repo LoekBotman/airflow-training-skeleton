@@ -14,7 +14,7 @@ args = {"owner": "Loek",
 
 project_id = "611e4210f1606867"
 
-http_end_point = "https://europe-west1-gdd-airflow-training.cloudfunctions.net/airflow-training-transform-valutas?date={{ ds }}&from=GBP&to=EUR"
+http_end_point = "airflow-training-transform-valutas?date={{ ds }}&from=GBP&to=EUR"
 
 bucket = "airflow-training-data-loek"
 
