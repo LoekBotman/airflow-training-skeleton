@@ -19,7 +19,7 @@ pgsl_to_gcs = PostgresToGoogleCloudStorageOperator(
     transfer_date = '{{ ds }}'""",
     bucket = "airflow-training-data-loek/pgsl_to_gcs",
     filename = "daily_load_{{ ds }}.json",
-    posgres_conn_id="postgres_table",
+    postgres_conn_id="postgres_table",
     dag=dag
 )
 
