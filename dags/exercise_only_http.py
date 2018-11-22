@@ -1,6 +1,6 @@
 import airflow
 
-from dags.airflow_training.operators.http_to_gcs import HttpToGcsOperator
+from airflow_training.operators.http_to_gcs import HttpToGcsOperator
 
 args = {"owner": "Loek",
         "start_date": airflow.utils.dates.days_ago(3)}
