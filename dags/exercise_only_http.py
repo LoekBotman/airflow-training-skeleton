@@ -1,5 +1,5 @@
 import airflow
-
+from airflow import DAG
 from airflow_training.operators.http_to_gcs import HttpToGcsOperator
 
 args = {"owner": "Loek",
